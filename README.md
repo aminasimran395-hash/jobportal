@@ -9,7 +9,7 @@ This platform allows Employers to post jobs, Job Seekers to apply, and Admin to 
 # 👨‍💻 Developer
 
 Amina Simran
-UI/UX, Web Development, Graphic Designer
+UI/UX, Web Development, Graphic Designer/Product Designer
 
 ---
 
