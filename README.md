@@ -8,10 +8,8 @@ This platform allows Employers to post jobs, Job Seekers to apply, and Admin to 
 
 # 👨‍💻 Developer
 
-**Mohammed Arhan**  
-Full Stack Developer & AI/ML Engineer  
-Zephyr Technologies  
-🎓 MCA Graduate  
+Amina Simran
+UI/UX, Web Development, Graphic Designer
 
 ---
 
