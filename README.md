@@ -1,101 +1,89 @@
-# 🚀 AI Job Portal
+﻿# 🚀 AI Job Portal
 
-A modern, fully functional AI-powered Job Portal system built using PHP, MySQL, HTML, CSS, and JavaScript.
+A polished recruitment portal built with PHP, MySQL, HTML, CSS, and JavaScript.
 
-This platform allows Employers to post jobs, Job Seekers to apply, and Admin to manage the complete system.
-
----
-
-# 👨‍💻 Developer
-
-Amina Simran
-UI/UX, Web Development, Graphic Designer/Product Designer
+This app delivers a role-based hiring experience with separate dashboards for admins, employers, and job seekers.
 
 ---
 
-# 🌟 Project Overview
+# 🌟 What this project delivers
 
-AI Job Portal is a role-based web application designed to manage recruitment efficiently.
-
-The system supports:
-
-- Admin (Full Control)
-- Employer (Post & Manage Jobs)
-- Job Seeker (Search & Apply Jobs)
-
-The UI follows a modern SaaS-style glassmorphism design with gradient backgrounds and responsive layout.
+- **Admin dashboard** for managing users, jobs, categories, and analytics.
+- **Employer portal** for posting jobs, editing listings, and reviewing applications.
+- **Job seeker experience** for searching jobs, applying with resume uploads, and tracking application status.
+- **Modern responsive UI** designed for desktop and mobile.
+- **Clean PHP structure** with reusable includes and role-based access control.
 
 ---
 
-# 🛠 Tech Stack
+# 🧩 Project structure
+
+```
+ai_job_portal/
+├── admin/            # Admin pages and dashboard
+├── employer/         # Employer dashboard and job management
+├── jobseeker/        # Job seeker interface and applications
+├── includes/         # Shared auth, database, header/footer files
+├── assets/           # CSS and JavaScript
+│   ├── css/
+│   └── js/
+├── uploads/          # Uploaded resumes
+├── index.php         # Home page
+├── login.php         # Login page
+├── register.php      # Registration page
+└── README.md         # Project documentation
+```
+
+---
+
+# 🚀 Key features
+
+## Admin
+- Manage users
+- Manage jobs
+- Manage categories
+- View summary statistics
+
+## Employer
+- Create and update job posts
+- Manage active job listings
+- View candidate applications
+
+## Job Seeker
+- Search and filter job listings
+- Apply with resume upload
+- Track submitted applications
+
+---
+
+# 🛠 Tech stack
 
 - PHP (Core PHP)
-- MySQL Database
+- MySQL
 - HTML5
-- CSS3 (Modern UI)
+- CSS3
 - JavaScript
-- XAMPP (Apache + MySQL)
+- XAMPP
 
 ---
 
-# 📂 Project Folder Structure
-ai_job_portal/
-│
-├── admin/
-├── employer/
-├── jobseeker/
-├── includes/
-├── assets/
-│ ├── css/
-│ ├── js/
-│ └── images/
-├── uploads/
-├── index.php
-├── login.php
-├── register.php
-└── README.md
+# 📝 Setup guide
 
+1. Copy the project folder into `xampp/htdocs/ai_job_portal`.
+2. Start Apache and MySQL in XAMPP.
+3. Open `http://localhost/phpmyadmin`.
+4. Create a new database named `ai_job_portal`.
+5. Import the SQL schema below.
+6. Open `http://localhost/ai_job_portal/register.php` to begin.
 
 ---
 
-# 🔐 Role-Based Features
-
-## 👑 Admin
-- Manage Users
-- Manage Jobs
-- Manage Categories
-- Full Dashboard Access
-
-## 🏢 Employer
-- Post New Jobs
-- Manage Posted Jobs
-- View Applications
-
-## 👨‍🎓 Job Seeker
-- Search Jobs
-- Apply for Jobs
-- Upload Resume
-- Track Application Status
-
----
-
-# 🗄 DATABASE SETUP
-
-## Step 1: Create Database
+# 🗄 Database setup
 
 ```sql
 CREATE DATABASE ai_job_portal;
 USE ai_job_portal;
 
--- ==============================
--- CREATE DATABASE
--- ==============================
-CREATE DATABASE ai_job_portal;
-USE ai_job_portal;
-
--- ==============================
--- TABLE 1: users
--- ==============================
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -105,17 +93,11 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- ==============================
--- TABLE 2: categories
--- ==============================
 CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- ==============================
--- TABLE 3: jobs
--- ==============================
 CREATE TABLE jobs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     employer_id INT NOT NULL,
@@ -129,9 +111,6 @@ CREATE TABLE jobs (
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
--- ==============================
--- TABLE 4: applications
--- ==============================
 CREATE TABLE applications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     job_id INT NOT NULL,
@@ -143,18 +122,27 @@ CREATE TABLE applications (
     FOREIGN KEY (jobseeker_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- ==============================
--- DEFAULT ADMIN ACCOUNT
--- ==============================
 INSERT INTO users (name, email, password, role)
 VALUES ('Admin', 'admin@gmail.com', '12345', 'admin');
 
--- ==============================
--- DEFAULT CATEGORIES
--- ==============================
 INSERT INTO categories (name) VALUES
 ('IT'),
 ('Marketing'),
 ('Finance'),
 ('HR'),
 ('Sales');
+```
+
+---
+
+# ⚠️ Important note
+
+- The sample admin password is stored as plain text.
+- For production, replace it with a secure hashed password.
+- Use secure database credentials before deploying.
+
+---
+
+# 👩‍💻 Developer
+
+Amina Simran — UI/UX and web development
